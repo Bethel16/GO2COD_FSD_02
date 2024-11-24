@@ -1,0 +1,412 @@
+/* src/assets/css/global.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 100%;
+}
+.navbar {
+    width: 100%;
+    max-width: 100%; /* Ensure it spans the full viewport width */
+    margin: 0; /* Remove any default margins */
+    padding: 0; /* Adjust padding as needed */
+    border: none; /* Optional: remove borders if not needed */
+}
+
+.navbar-expand-lg {
+    flex-wrap: wrap; /* Ensure items fit well on all screen sizes */
+}
+
+.container {
+    max-width: 100%; /* Make the container span the entire width */
+    padding: 0; /* Remove default padding */
+}
+.navbar.bg-dark {
+    background-color: #343a40 !important; /* Dark background */
+    color: #fff; /* Ensure text is visible */
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #fff !important; /* Force links to stay white */
+    padding: 0.5rem 1rem; /* Adjust padding for better spacing */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    background-color: #495057; /* Add hover effect */
+}
+.osahan-carousel-two {
+    display: flex;
+    flex-direction: row;
+    background: #f9f9f9;
+  }
+  
+  .category-list-sidebar {
+    width: 25%; /* Sidebar takes 25% of the width */
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    max-height: 100vh; /* Ensures it fills the left side fully */
+    overflow-y: auto; /* Scroll if content exceeds the height */
+  }
+  
+  .main-content {
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  .carousel-slider-main img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px; /* Space between carousel and product list */
+  }
+  
+
+  
+  .sidebar-category-item img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .sidebar-category-item h6 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 8px;
+  }
+  
+  .btn-link.badge-success {
+    color: #fff;
+    background: #28a745;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .osahan-carousel-two {
+    display: flex;
+    flex-direction: row;
+    background: #f9f9f9;
+  }
+  
+  .category-list-sidebar {
+    width: 20%; /* Sidebar now takes 20% of the width */
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px; /* Reduced padding for a narrower look */
+    max-height: 100vh; /* Ensures it fills the left side fully */
+    overflow-y: auto; /* Scroll if content exceeds the height */
+  }
+  
+  .main-content {
+    width: 80%; /* Main content takes 80% of the width */
+    padding: 15px; /* Adjusted padding for better balance */
+    background: #f9f9f9;
+  }
+  
+  .sidebar-category-item img {
+    width: 35px; /* Smaller icon size */
+    height: 35px;
+    border-radius: 8px;
+    object-fit: cover; /* Ensures the image scales properly */
+  }
+  
+  .sidebar-category-item h6 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .sidebar-category-item p {
+    font-size: 12px;
+    color: #6c757d;
+    margin: 0;
+  }
+  
+  .category-list-sidebar-body {
+    padding: 10px; /* Reduced padding inside the sidebar */
+    max-height: calc(100vh - 100px); /* Prevents the sidebar from overflowing the viewport */
+    overflow-y: auto; /* Scrollable if content exceeds height */
+  }
+  .carousel-slider-main img {
+    max-width: 100%;
+    max-height: 300px; /* Limit the height of the carousel images */
+    object-fit: cover; /* Ensure the image scales proportionally */
+    border-radius: 8px; /* Add a slight rounding to the corners */
+    margin: 0 auto; /* Center the images if smaller than the container */
+  }
+  
+  .carousel-slider-main {
+    width: 100%;
+    padding: 15px;
+    background-color: #f9f9f9; /* Optional background color for better contrast */
+  }
+  
+  .osahan-carousel-two {
+    display: flex;
+    flex-direction: row;
+    background: #f9f9f9;
+    align-items: flex-start; /* Ensure alignment stays at the top */
+  }
+  
+  .category-list-sidebar {
+    width: 20%; /* Sidebar remains 20% of the width */
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    max-height: 100vh; /* Full height */
+    overflow-y: auto; /* Scroll if content overflows */
+  }
+  
+  .main-content {
+    width: 80%; /* Adjust main content to take up remaining space */
+    padding: 15px;
+    background: #f9f9f9;
+  }
+  /* Remove underline from all links */
+a {
+    text-decoration: none;
+  }
+  
+  /* Optional: Add hover styling to indicate clickable links */
+  a:hover {
+    text-decoration: underline; /* Adds underline only on hover, optional */
+    color: #007bff; /* Change link color on hover */
+  }
+  
+  /* Sidebar-specific link styles */
+  .sidebar-category-item a {
+    text-decoration: none; /* Ensure sidebar links have no underline */
+    color: inherit; /* Use inherited text color */
+  }
+  
+  .sidebar-category-item a:hover {
+    text-decoration: none; /* Keep links clean on hover */
+    color: #007bff; /* Optional hover color for better UX */
+  }
+
+  
+  .section-header h5 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .section-header .badge {
+    background-color: #28a745;
+    font-size: 14px;
+    padding: 5px 10px;
+  }  
+  .offer-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  .regular-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-left: 5px;
+  }
+  
+  .btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #218838;
+  }
+    .row.no-gutters {
+    margin: 0;
+    padding: 0;
+  }
+ 
+
+/* Category Sidebar */
+.category-sidebar {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.category-sidebar h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.category-sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.category-sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.category-sidebar ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+.category-sidebar ul li a:hover {
+  color: #28a745;
+}
+/* Product card styles */
+.product {
+  margin-left: 50px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  flex: 1 0 calc(25% - 20px); /* Change to 4 items per row */
+  margin-bottom: 20px; /* Space below each card */
+  box-sizing: border-box; /* Ensures padding and border are included in width calculation */
+}
+
+.product:hover {
+  transform: translateY(-5px);
+}
+
+.product-header {
+  position: relative;
+  padding: 10px;
+  background-color: #f8f8f8;
+}
+
+.product-header img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-header .mdi-circle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+}
+
+.product-body {
+  text-align: center;
+}
+
+.product-body h5 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.product-body h6 {
+  font-size: 14px;
+  color: #777;
+}
+
+.product-footer {
+  padding: 15px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-footer button {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Flexbox layout for product cards */
+.product-list .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between cards */
+}
+
+.product-list .product {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  flex: 1 0 calc(25% - 20px); /* 4 items per row */
+  margin-bottom: 20px; /* Space at the bottom of the card */
+  box-sizing: border-box;
+}
+
+.product-list .product-header img {
+  width: 100%;
+  height: auto; /* Ensure the image scales correctly */
+  max-height: 200px; /* Optional: Limit the image height */
+  object-fit: cover; /* Keep aspect ratio */
+}
+
+.product-footer button {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 992px) { /* Medium screens */
+  .product-list .product {
+    flex: 1 0 calc(50% - 20px); /* 2 cards per row on medium screens */
+  }
+}
+
+@media (max-width: 768px) { /* Smaller screens */
+  .product-list .product {
+    flex: 1 0 calc(50% - 20px); /* 2 cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) { /* Smallest screens */
+  .product-list .product {
+    flex: 1 0 calc(100% - 20px); /* 1 card per row on small screens */
+  }
+}
+/* Adjust the layout for the Home Page */
+.home-page .container-fluid {
+  display: flex;
+  padding: 0;
+}
+
+.home-page .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.home-page .col-md-3 {
+  flex: 0 0 25%; /* 25% width for Category Section */
+}
+
+.home-page .col-md-9 {
+  flex: 0 0 75%; /* 75% width for Product Slider */
+}
+
+/* Responsive Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+  .home-page .col-md-3, .home-page .col-md-9 {
+    flex: 0 0 100%; /* Stack sections vertically on small screens */
+  }
+}
