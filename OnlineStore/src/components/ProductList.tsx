@@ -1,44 +1,93 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate for redirection
 
-// Example product data (you can replace this with dynamic data later)
-const products = [
-  { id: 1, img: "img/item/1.jpg", title: "Product 1", price: 450.99, regularPrice: 800.99 },
-  { id: 2, img: "img/item/2.jpg", title: "Product 2", price: 150.99, regularPrice: 250.99 },
-  { id: 3, img: "img/item/3.jpg", title: "Product 3", price: 350.99, regularPrice: 500.99 },
-  { id: 4, img: "img/item/4.jpg", title: "Product 4", price: 550.99, regularPrice: 700.99 },
-  { id: 5, img: "img/item/5.jpg", title: "Product 5", price: 650.99, regularPrice: 900.99 },
-  { id: 6, img: "img/item/6.jpg", title: "Product 6", price: 850.99, regularPrice: 1200.99 },
-  { id: 7, img: "img/item/7.jpg", title: "Product 7", price: 450.99, regularPrice: 800.99 },
-  { id: 8, img: "img/item/8.jpg", title: "Product 8", price: 500.99, regularPrice: 850.99 }
-];
+type Product = {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  discounted_price?: number;
+  stock: number;
+  category: string;
+  image: string;
+  tags?: string;
+  availability: boolean;
+  quick_overview?: string;
+  features?: string[];
+};
 
-const ProductList = () => {
+const ProductList: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Initialize useNavigate
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/products/") // Replace with your Django API URL
+      .then((response) => response.json())
+      .then((data: Product[]) => {
+        setProducts(data); // TypeScript ensures data matches the `Product[]` type
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading products...</div>;
+  }
+
+  const handleAddToCart = (product: Product) => {
+    console.log(`Added product ${product.name} to cart!`);
+    navigate("/cart-list", { state: { product } }); // Navigate to the CartList page and pass product data
+  };
+
+  const handleProductClick = (productId: number) => {
+    navigate(`/product/${productId}`); // Navigate to the product details page
+  };
+
   return (
     <div className="main-content">
       <section className="product-list section-padding">
         <div className="container">
           <div className="section-header">
-            <h5 className="heading-design-h5">
-              All Products
-            </h5>
+            <h5 className="heading-design-h5">All Products</h5>
           </div>
           <div className="row">
             {products.map((product) => (
-              <div key={product.id} className="col-md-3 col-xs-12 mb-4">
+              <div key={product.id} className="col-md-3 col-sm-6 col-xs-12 mb-4">
                 <div className="product">
-                  <a href="single.html">
+                  <a href={`#`} onClick={(e) => e.preventDefault()}>
                     <div className="product-header">
-                      <img className="img-fluid" src={product.img} alt={product.title} />
+                      <img
+                        className="img-fluid product-image"
+                        src={"http://127.0.0.1:8000" + product.image}
+                        alt={product.name}
+                      />
                     </div>
                     <div className="product-body">
-                      <h5>{product.title}</h5>
-                      <p>
-                        <strong>${product.price}</strong>{" "}
-                        <span className="regular-price">${product.regularPrice}</span>
+                      <h5
+                        style={{ cursor: "pointer" }}
+                        onClick={() => handleProductClick(product.id)} // Navigate to product details page
+                      >
+                        {product.name}
+                      </h5>
+                      <p className="product-pricing">
+                        <strong className="price">
+                          ${product.discounted_price}
+                        </strong>
+                        {product.discounted_price && (
+                          <span className="regular-price">${product.price} </span>
+                        )}
                       </p>
                     </div>
                     <div className="product-footer">
-                      <button type="button" className="btn btn-secondary btn-sm">
+                      <button
+                        type="button"
+                        className="btn btn-secondary btn-sm"
+                        onClick={() => handleAddToCart(product)} // Pass the entire product object to the CartList page
+                      >
                         <i className="mdi mdi-cart-outline"></i> Add To Cart
                       </button>
                     </div>

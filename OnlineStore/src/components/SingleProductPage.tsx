@@ -1,36 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState} from "react";
+import { useParams , useNavigate } from "react-router-dom"; // Import useParams to access the product ID from the URL
 
-interface Product {
+type Product = {
   id: number;
   name: string;
   description: string;
   price: number;
-  discountPrice: number;
-  images: string[];
+  discounted_price: number;
+  image: string;
   available: boolean;
   category: string;
-}
+};
 
-const SingleProductPage: React.FC = () => {  
-  // Example static data for a product (you can replace this with real data fetched from an API or state)
-  const product: Product = {
-    id: 1,
-    name: 'SaveMore Corn Flakes (Pouch)',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor.',
-    price: 800.99,
-    discountPrice: 450.99,
-    images: [
-      'img/item/1.jpg',
-    ],
-    available: true,
-    category: 'Breakfast & Dairy',
-  };
+const SingleProductPage: React.FC = () => {
+  const { id } = useParams<{ id: string }>(); // Get the product ID from the URL
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  // Fetch product data by ID when the component mounts
+  useEffect(() => {
+    if (id) {
+      fetch(`http://127.0.0.1:8000/api/products/${id}/`) // Corrected URL syntax
+        .then((response) => response.json())
+        .then((data: Product) => {
+          setProduct(data); // Set the product data in state
+          console.log("Product ddta" ,  data)
+          setLoading(false); // Set loading to false once data is fetched
+        })
+        .catch((error) => {
+          console.error("Error fetching product:", error);
+          setLoading(false);
+        });
+    }
+  }, [id]);
 
-  // Add to cart handler
+  if (loading) {
+    return <div>Loading product details...</div>;
+  }
+
+  if (!product) {
+    return <div>Product not found</div>; // Handle the case where the product is not found
+  }
+
   const handleAddToCart = () => {
     console.log(`Added product ${product.name} to cart!`);
-    // Implement cart functionality here, e.g., updating cart state/context
+    navigate('/cart-list', {
+      state: { product }, // Pass the product data via state
+    });
   };
 
   return (
@@ -49,20 +65,13 @@ const SingleProductPage: React.FC = () => {
 
                 {/* Main image slider */}
                 <div id="sync1" className="owl-carousel">
-                  {product.images.map((image, index) => (
-                    <div key={index} className="item">
-                      <img alt={product.name} src={image} className="img-fluid img-center" />
-                    </div>
-                  ))}
-                </div>
-
-                {/* Thumbnail image slider */}
-                <div id="sync2" className="owl-carousel">
-                  {product.images.map((image, index) => (
-                    <div key={index} className="item">
-                      <img alt={product.name} src={image} className="img-fluid img-center" />
-                    </div>
-                  ))}
+                  <div className="item">
+                    <img
+                      alt={product.name}
+                      src={"http://127.0.0.1:8000" + product.image} // Ensure the URL is valid
+                      className="img-fluid img-center"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -80,10 +89,10 @@ const SingleProductPage: React.FC = () => {
                 - 500 gm
               </h6>
               <p className="regular-price">
-                <i className="mdi mdi-tag-outline"></i> MRP : ${product.price.toFixed(2)}
+                <i className="mdi mdi-tag-outline"></i> MRP : ${product.price}
               </p>
               <p className="offer-price mb-0">
-                Discounted price : <span className="text-success">${product.discountPrice.toFixed(2)}</span>
+                Discounted price : <span className="text-success">${product.discounted_price}</span>
               </p>
 
               <button onClick={handleAddToCart} type="button" className="btn btn-secondary btn-lg">

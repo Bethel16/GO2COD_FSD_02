@@ -9,6 +9,7 @@ body {
 .navbar {
     width: 100%;
     max-width: 100%;
+    margin-bottom: 40px;
 }
 .navbar {
     width: 100%;
@@ -409,4 +410,64 @@ a {
   .home-page .col-md-3, .home-page .col-md-9 {
     flex: 0 0 100%; /* Stack sections vertically on small screens */
   }
+}
+
+
+/* Container for centering the cart table */
+.cart-container {
+  display: flex;
+  justify-content: center;  /* Horizontally center */
+  min-height: 100vh;         /* Ensure it takes up full height of the viewport */
+  padding: 20px;            /* Add some padding */
+}
+
+.cart-table {
+  width: 100%; /* Ensure the table takes up full available width */
+  max-width: 1200px;  /* Limit the max width */
+  border: 1px solid #ddd;  /* Add a border to the card */
+  border-radius: 8px;      /* Round the corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Add shadow */
+  background-color: #fff;  /* White background for the table */
+  padding: 20px;           /* Add padding to the table */
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse; /* Remove spacing between table cells */
+}
+
+.table th, .table td {
+  padding: 15px;  /* Add padding to table cells */
+  text-align: left; /* Align text to the left */
+}
+
+.table th {
+  background-color: #f8f8f8; /* Light background for table headers */
+  border-bottom: 1px solid #ddd; /* Border for table headers */
+}
+
+.table td {
+  border-bottom: 1px solid #ddd; /* Border for table rows */
+}
+
+.table .cart_product img {
+  max-width: 100px; /* Limit the product image width */
+  height: auto;
+}
+
+.badge-success {
+  background-color: green;
+}
+
+.badge-danger {
+  background-color: red;
+}
+
+.text-right {
+  text-align: right; /* Align text to the right */
+}
+
+.text-danger {
+  color: red;
 }

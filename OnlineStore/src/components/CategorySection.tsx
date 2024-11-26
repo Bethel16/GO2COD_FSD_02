@@ -18,7 +18,7 @@
           <div className="category-list-sidebar flex-shrink-0">
             <div className="category-list-sidebar-header">
               <button
-                className="btn btn-link badge-success"
+                className="btn btn-link badge-success mt-5"
                 type="button"
                 data-toggle="collapse"
                 data-target="#collapseExample"
