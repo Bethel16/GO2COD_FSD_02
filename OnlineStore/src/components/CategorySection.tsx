@@ -51,7 +51,7 @@
               <div className="owl-carousel owl-carousel-slider rounded overflow-hidden shadow-sm">
                 <div className="item">
                   <a href="shop.html">
-                    <img className="img-fluid" src="img/slider/slider1.jpg" alt="First slide" />
+                    <img className="img-fluid" src="img/ad/2.jpg" alt="First slide" />
                   </a>
                 </div>
               </div>

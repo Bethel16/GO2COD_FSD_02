@@ -1,9 +1,9 @@
 const ProductItemsSlider = () => {
   const products = [
-    { id: 1, img: "img/item/1.jpg", title: "Product Title Here", price: 450.99, regularPrice: 800.99, isVeg: true },
-    { id: 6, img: "img/item/6.jpg", title: "Product Title Here", price: 450.99, regularPrice: 800.99, isVeg: true }, 
-    { id: 1, img: "img/item/1.jpg", title: "Product Title Here", price: 450.99, regularPrice: 800.99, isVeg: true }, 
-    { id: 6, img: "img/item/6.jpg", title: "Product Title Here", price: 450.99, regularPrice: 800.99, isVeg: true }, 
+    { id: 1, img: "img/item/1.jpg", title: "Abeba Gomen", price: 450.99, regularPrice: 800.99, isVeg: true },
+    { id: 6, img: "img/item/6.jpg", title: "Red Grapes", price: 450.99, regularPrice: 800.99, isVeg: true }, 
+    { id: 1, img: "img/item/1.jpg", title: "Abeba Gomen", price: 450.99, regularPrice: 800.99, isVeg: true }, 
+    { id: 6, img: "img/item/6.jpg", title: "Red Grapes", price: 450.99, regularPrice: 800.99, isVeg: true }, 
     
 
   ];
